@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu Primeiro desafio em JS</title>
+  <!-- Bootstrap CSS CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .materia {
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .highlight {
+      outline: 3px solid gold;
+    }
+
+    /* Temas personalizados */
+    body.tema-amarelo {
+      background-color: #fffde7;
+      color: #795548;
+    }
+
+    body.tema-amarelo .materia {
+      background-color: #fff9c4;
+    }
+
+    body.tema-azul {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+    }
+
+    body.tema-azul .materia {
+      background-color: #bbdefb;
+    }
+
+    body.tema-vermelho {
+      background-color: #ffebee;
+      color: #b71c1c;
+    }
+
+    body.tema-vermelho .materia {
+      background-color: #ffcdd2;
+    }
+
+    body.tema-roxo {
+      background-color: #f3e5f5;
+      color: #4a148c;
+    }
+
+    body.tema-roxo .materia {
+      background-color: #e1bee7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <header class="text-center mb-4">
+      <h1 class="display-4">Meu Primeiro desafio em JS</h1>
+      <p class="lead">Aprender é uma aventura!</p>
+      <div class="btn-group" role="group">
+        <button class="btn btn-warning" onclick="mudarTema('amarelo')">Amarelo</button>
+        <button class="btn btn-primary" onclick="mudarTema('azul')">Azul</button>
+        <button class="btn btn-danger" onclick="mudarTema('vermelho')">Vermelho</button>
+        <button class="btn btn-purple text-white" style="background-color: #8e24aa;" onclick="mudarTema('roxo')">Roxo</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="row">
+        <div class="col-md-6 materia">
+          <h2>Português</h2>
+          <p>Vamos aprender a ler, escrever e contar histórias incríveis!</p>
+          <button class="btn btn-outline-dark materia-btn">Entrar Português</button>
+        </div>
+        <div class="col-md-6 materia">
+          <h2>Matemática</h2>
+          <p>Números, formas e desafios para os pequenos gênios!</p>
+          <button class="btn btn-outline-dark materia-btn">Entrar Matemática</button>
+        </div>
+        <div class="col-md-6 materia">
+          <h2>Ciências</h2>
+          <p>Explorando o mundo, os animais, as plantas e muito mais!</p>
+          <button class="btn btn-outline-dark materia-btn">Entrar Ciências</button>
+        </div>
+        <div class="col-md-6 materia">
+          <h2>Artes</h2>
+          <p>Vamos desenhar, pintar e usar a imaginação!</p>
+          <button class="btn btn-outline-dark materia-btn">Entrar Artes</button>
+        </div>
+        <div class="col-md-12 materia">
+          <h2>Educação Física</h2>
+          <p>Muito movimento e brincadeiras saudáveis!</p>
+          <button class="btn btn-outline-dark materia-btn">Entrar Educação Física</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center mt-5">
+      <p>&copy; 2025 Creche do Papai - Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS (opcional para interações Bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Alerta de boas-vindas
+    window.addEventListener('load', () => {
+      alert('Bem-vindo à Creche do Papai! Vamos aprender juntos?');
+    });
+
+    // Destaque nas seções
+    document.querySelectorAll('.materia-btn').forEach(botao => {
+      botao.addEventListener('click', () => {
+        document.querySelectorAll('.materia').forEach(sec => sec.classList.remove('highlight'));
+        botao.closest('.materia').classList.add('highlight');
+      });
+    });
+
+    // Mudança de tema
+    function mudarTema(cor) {
+      document.body.className = ''; // limpa temas anteriores
+      document.body.classList.add(`tema-${cor}`);
+    }
+  </script>
+</body>
+</html>
